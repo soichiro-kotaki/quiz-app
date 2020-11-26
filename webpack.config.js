@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin} = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // const HtmlWebpackPugPlugin = require('html-webpack-pug-plugin');
 
 module.exports = {
@@ -18,6 +19,36 @@ module.exports = {
       {//拡張子が.tsの場合/~/で囲む。正しく拡張子を読み込むための正規表現
         test: /\.ts$/,
         use: 'ts-loader',//tsファイルをwebpackでコンパイルするためのツール。ターミナルからnpmコマンドでインストール。
+      },
+      {
+        test: /\.(css|scss|sass)$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+
+            },
+          },
+          {
+            loader: 'sass-loader',
+          },
+        ],
+      },
+      {
+        test: /\.jpg$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              esModule: false,
+              name: 'images/icon.png',
+            },
+          },
+        ],
       },
       {
         test: /\.pug$/,
@@ -41,9 +72,20 @@ module.exports = {
     ],
   },
   plugins: [
+    new MiniCssExtractPlugin({
+      filename: './[name]-[hash].css',
+    }),
     new HtmlWebpackPlugin({
       template: './src/templates/index.pug',
       filename: './index.html',
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/templates/content.pug',
+      filename: './content.html',
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/templates/result.pug',
+      filename: './result.html',
     }),
     new CleanWebpackPlugin(),
   ],

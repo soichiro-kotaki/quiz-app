@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+}
+
+body {
+  background-image: url("../images/icon.jpg");
+  background-repeat: repeat;
+  text-align: center;
+
+  h1 {
+    background: #fff;
+    margin: 80px 15px 200px;
+    border-radius: 3px;
+    font-size: 25px;
+  }
+  a {
+    display: block;
+    text-decoration: none;
+    background: #fff;
+    color: #000;
+    width: 100px;
+    margin: 0 auto;
+    border-radius: 10px;
+    font-size: 30px;
+    font-weight: bold;
+
+    &:hover {
+      cursor: pointer;
+      opacity: 0.9;
+    }
+  }
+  button {
+    // width: 100px;
+    height: 40px;
+    font-weight: bold;
+
+    &:hover {
+      cursor: pointer;
+      opacity: 0.9;
+    }
+  }
+}

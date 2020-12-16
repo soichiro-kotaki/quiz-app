@@ -10,6 +10,16 @@ window.addEventListener("popstate",  () => {
     history.go(1);
 });
 
+//初めてページを読み込んだときにボタンイベントを発火させる
+window.addEventListener('load', () => {
+    const PageHandler = document.getElementById('title');
+    if (PageHandler) {
+        soundBtn();
+    } else {
+        return;
+    };
+});
+
 //index.html
 if (document.URL.match(/index/)) {
     soundBtn();

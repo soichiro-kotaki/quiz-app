@@ -4,7 +4,7 @@ $main-color: #fff;
 //メディアクエリ
 $sp: 350px;  // iPhone5以上の画面サイズのスマホ
 $tab: 680px; // タブレット
-$pc: 1024px; // PC
+$pc: 1025px; // PC
 @mixin sp {
   @media (min-width: ($sp)) {
     @content;
@@ -92,7 +92,7 @@ $pc: 1024px; // PC
     margin-bottom: 70px;
     font-size: 50px;
   };
-  
+
   @include pc {
     margin-bottom: 30px;
     font-size: 40px;

@@ -3,11 +3,21 @@ html(lang="ja")
   head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title Document
+    link(rel="shortcut icon" href="https://otologic.jp/sounds/se/pre/Quiz-Wrong_Buzzer01-1.mp3")
+    link(rel="shortcut icon" href="https://otologic.jp/sounds/se/pre/Quiz-Correct_Answer02-2.mp3")
+    link(rel="shortcut icon" href="https://otologic.jp/sounds/se/pre/Quiz-Results01-1.mp3")
+    link(rel="shortcut icon" href="https://otologic.jp/sounds/se/pre/Onmtp-Click02-1.mp3")
+    title クイズアプリ
   body
-   h1.question-area 問題文がここに表示されます。
-   a#showresult(href="./result.html") 成績を見る
-   button 選択肢1
-   button 選択肢2
-   button 選択肢3
-   button 選択肢4
+    div#main-content
+      h1#q-text 問題文
+      p#correct-show-area 正誤を表示
+      button.btn
+      button.btn
+      button.btn
+      button.btn
+    div#result-content
+      button#resultbtn 結果表示
+      #result-show-area
+      a#tostart 最初に戻る
+
